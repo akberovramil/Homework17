@@ -12,13 +12,11 @@ public class Products {
     }
 
     public Products(String name, Double price, Double amount) {
-
         if (name == null || name.isEmpty()) {
             throw new RuntimeException("Заполните карточку товара полностью");
         } else {
             this.name = name;
         }
-
         if (price == null) {
             throw new RuntimeException("Заполните карточку товара полностью");
         } else {
@@ -31,12 +29,9 @@ public class Products {
         }
 
         products = new HashSet<>();
-
-
     }
 
     public void addProduct(Products products) {
-
         List<Products> list = new ArrayList<>();
         if (list.equals(list)) {
             throw new RuntimeException("Такой товар уже есть");
@@ -61,7 +56,6 @@ public class Products {
         return amount;
     }
 
-
     @Override
     public String toString() {
         return "Products{" +
@@ -70,7 +64,6 @@ public class Products {
                 ", amount=" + amount +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,7 +71,6 @@ public class Products {
         Products products1 = (Products) o;
         return Objects.equals(name, products1.name) && Objects.equals(price, products1.price) && Objects.equals(amount, products1.amount) && Objects.equals(products, products1.products);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(name, price, amount, products);

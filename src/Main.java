@@ -33,11 +33,9 @@ public class Main {
         integers.add(19);
         integers.add(20);
         integers.add(21);
-
         integers.removeIf(n ->(n % 2 == 0));
         System.out.println(integers);
         System.out.println("Задача про задания учениками");
-
         HashSet<String> tasks = new HashSet<>(15);
         tasks.add("8 * 7");
         tasks.add("8 * 5");
@@ -55,17 +53,5 @@ public class Main {
         tasks.add("3 * 7");
         tasks.add("5 * 7");
         tasks.add("5 * 5");
-
-
-
-
-
     }
-
-
-
-
-
-
-
 }

@@ -33,7 +33,6 @@ public class Recipes {
                 ", nameRecipe='" + nameRecipe + '\'' +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,7 +40,6 @@ public class Recipes {
         Recipes recipes1 = (Recipes) o;
         return Objects.equals(recipes, recipes1.recipes) && Objects.equals(totalCost, recipes1.totalCost) && Objects.equals(nameRecipe, recipes1.nameRecipe);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(recipes, totalCost, nameRecipe);

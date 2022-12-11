@@ -16,7 +16,4 @@ public class Passport {
         DataPassport passport = new DataPassport(number, firstname, lastName, middleName, dateOfBirth);
         pasportMap.put(passport.getNumber(), passport);
     }
-
-
-
 }
