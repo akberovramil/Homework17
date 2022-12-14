@@ -2,14 +2,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Products bananas = new Products("Бананы", 12.0, 3.0);
-        Products potatoes = new Products("Бананы", 2.0, 8.0);
+        Products bananas = new Products("Бананы", 12.0, 0);
+        Products potatoes = new Products("Бананы", 2.0, 8);
         HashSet<Products> products = new HashSet<>();
         products.add(bananas);
         products.add(potatoes);
         products.add(potatoes);
         System.out.println(products.toString());
-        Recipes saladOfHell = new Recipes(products, 14.0, "Адский салат");
+        Recipes saladOfHell = new Recipes(bananas, 14.0, "Адский салат", 2);
         System.out.println(saladOfHell.toString());
         HashSet<Integer> integers = new HashSet<>();
         integers.add(1);
@@ -53,5 +53,22 @@ public class Main {
         tasks.add("3 * 7");
         tasks.add("5 * 7");
         tasks.add("5 * 5");
+        Random random = new Random();
+        Set<Primer> sets = new HashSet<>();
+        while (sets.size() < 15) {
+            Primer primer = new Primer(random.nextInt(10), random.nextInt(10));
+            sets.add(primer);
+            System.out.println(primer);
+        }
+        System.out.println("Задание урока № 3 по коллекциям");
+        Map<Products, Integer> prod = new HashMap<>();
+        prod.put(bananas, bananas.getAmount() );
+        System.out.println(prod);
+        HashMap<Products, Integer> rec = new HashMap<>();
+        rec.put(bananas, bananas.getAmount());
+        System.out.println(rec);
+        System.out.println(Recipes.calculateCost(saladOfHell));
+
+
     }
 }

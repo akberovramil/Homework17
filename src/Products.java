@@ -4,14 +4,26 @@ public class Products {
 
     private String name;
     private Double price;
-    private Double amount;
-    private HashSet<Products> products;
+    private Integer amount;
 
-    public Products() {
+    private HashMap<Products, Integer> products;
 
+
+
+    public Products(String name, Integer amount ) {
+        if (name == null || name.isEmpty()) {
+            throw new RuntimeException("«аполните карточку товара полностью");
+        } else {
+            this.name = name;
+            if (amount == null) {
+                this.amount = 1;
+            } else {
+                this.amount = amount;
+            }
+        }
+        products = new HashMap<>();
     }
-
-    public Products(String name, Double price, Double amount) {
+    public Products(String name, Double price, Integer amount) {
         if (name == null || name.isEmpty()) {
             throw new RuntimeException("«аполните карточку товара полностью");
         } else {
@@ -22,13 +34,13 @@ public class Products {
         } else {
             this.price = price;
         }
-        if (amount == null) {
-            throw new RuntimeException("«аполните карточку товара полностью");
+        if (amount == (int) 0) {
+            this.amount = 1;
         } else {
             this.amount = amount;
         }
 
-        products = new HashSet<>();
+        products = new HashMap<>();
     }
 
     public void addProduct(Products products) {
@@ -40,8 +52,8 @@ public class Products {
         }
     }
 
-    public Set<Products> getProducts() {
-        return products;
+    public void setProducts(HashMap<Products, Integer> products) {
+        this.products = products;
     }
 
     public String getName() {
@@ -52,7 +64,7 @@ public class Products {
         return price;
     }
 
-    public double getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 

@@ -1,19 +1,34 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 public class Recipes {
 
-    private Set<Products> recipes;
+    private HashMap<Products, Integer> recipes;
+    private Products product;
     private Double totalCost;
     private String nameRecipe;
+    private Integer productsAmount;
 
-    public Recipes(Set<Products> recipes, Double totalCost, String nameRecipe) {
-        this.recipes = recipes;
+    public Recipes(Products product, Double totalCost, String nameRecipe, Integer productsAmount) {
+        this.product = product;
         this.totalCost = totalCost;
         this.nameRecipe = nameRecipe;
+        if (productsAmount == null || productsAmount == 0) {
+            this.productsAmount = 1;
+        } else {
+            this.productsAmount = productsAmount;
+        }
     }
 
-    public Set<Products> getRecipes() {
+    public static Double calculateCost(Recipes recipes) {
+        Double sum;
+        sum = recipes.product.getPrice() * recipes.productsAmount;
+        return sum;
+    }
+
+    public Map<Products, Integer> getRecipes() {
         return recipes;
     }
 
@@ -25,14 +40,18 @@ public class Recipes {
         return nameRecipe;
     }
 
+    public Integer getProductsAmount() {
+        return productsAmount;
+    }
+
     @Override
     public String toString() {
         return "Recipes{" +
-                "recipes=" + recipes +
-                ", totalCost=" + totalCost +
+                "product=" + product +
                 ", nameRecipe='" + nameRecipe + '\'' +
                 '}';
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
